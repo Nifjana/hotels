@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'myApp/css/login_user.css' %}">
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        
+        <!-- Message Display -->
+        {% if messages %}
+            <div class="message">
+                {% for message in messages %}
+                    <p class="{{ message.tags }}">{{ message }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        <!-- Login Form -->
+        <form method="POST" action="{% url 'user_login' %}">
+            {% csrf_token %}
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required placeholder="Enter your email">
+            
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required autocomplete="current-password" placeholder="Enter your password">
+            
+            <button type="submit">Login</button>
+        </form>
+
+        <!-- Links -->
+        <p>Don't have an account?</p>
+        <a href="{% url 'users' %}?next={{ request.GET.next }}">Sign up</a>
+
+        <p>Back to <a href="{% url 'index' %}">Home</a></p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'myApp/css/about_style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="top">
+            <h1>Discover the Best Hotels in Albania – Your Perfect Stay Awaits!</h1>
+            <a href="{% url 'index' %}">Back to main page</a>
+        </div>
+        <h4>
+            Welcome to Now or Never, your ultimate destination for finding and booking the finest hotels in Albania!
+            Whether you're looking for a luxurious seaside resort, a cozy boutique hotel, or a charming stay in the heart of the mountains,
+            we have carefully curated a selection of top-rated accommodations to suit every traveler's needs.
+        </h4>
+        <div class="gif-container">
+            <div class="div1">
+                <img src="{% static 'myApp/images/wide-selection.gif' %}" alt="Wide Selection"> 
+                <strong>Wide Selection</strong>  
+                <p>Explore a variety of hotels across Albania, from the stunning beaches of the Riviera to the historic streets.
+                    Plan your trip with ease and find a hotel that matches your needs, whether it's a seaside escape, a cultural adventure, or a business trip.
+                    Start exploring and book your ideal stay today!</p>
+            </div>
+            <div class="div2">
+                <img src="{% static 'myApp/images/good-deal.gif' %}" alt="Best Deals"> 
+                <strong>Best Deals</strong> 
+                <p>Enjoy special offers and limited-time deals on top hotels. Find the perfect stay at the best price and make your next trip even more memorable. Book now and save big on your dream destination!</p>
+            </div>
+            <div class="div3">
+                <img src="{% static 'myApp/images/easy-book.gif' %}" alt="Easy Booking"> 
+                <strong>Easy Booking</strong>
+                <p>Our platform ensures a smooth, hassle-free experience with a secure payment process and instant confirmation. Choose your hotel, confirm your reservation in seconds, and get ready for a stress-free trip.</p>
+            </div>
+            <div class="div4">
+                <img src="{% static 'myApp/images/verify.gif' %}" alt="Verified Reviews"> 
+                <strong>Verified Reviews</strong>
+                <p>Read genuine guest reviews sharing firsthand experiences about comfort, service, location, and amenities. Book with confidence, knowing exactly what to expect before you arrive!</p>
+            </div>
+        </div>
+        <div class="div5">
+            <h5>Start planning your dream getaway today and experience Albania like never before!</h5>
+            <h5><a href="{% url 'dashboard_user' %}">Book Now</a> and make your stay unforgettable!</h5>
+        </div>
+    </div>
+    <script src="{% static 'myApp/js/about_scripts.js' %}"></script>
+</body>
+</html>

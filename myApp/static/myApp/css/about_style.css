@@ -1,0 +1,92 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+.top {
+    text-align: center;
+    margin-bottom: 30px;
+    background-color: #6c63ff;
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+h4 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #222;
+}
+
+.gif-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.gif-container > div {
+    flex: 1 1 45%;
+    background-color: #ffd6a5;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.gif-container > div:hover {
+    transform: scale(1.1);
+    background: linear-gradient(135deg, #f093fb, #f5576c);
+    color: #fff;
+}
+
+.gif-container img {
+    width: 100px;
+    height: auto;
+}
+
+.div5 {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #57cc99;
+    color: #fff;
+    border-radius: 15px;
+}
+
+.div5 a {
+    color: #fff;
+    background-color: #ff6b6b;
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.div5 a:hover {
+    background-color: #e85d5d;
+}
+
+@media (max-width: 768px) {
+    .gif-container {
+        flex-direction: column;
+    }
+}
