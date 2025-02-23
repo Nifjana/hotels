@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Dashboard</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'myApp/css/dashboard_owner.css' %}">
+    <script src="{% static 'myApp/js/owner_scripts.js' %}" defer></script>
+</head>
+<body>
+    <!-- Navigation Buttons -->
+    <div class="nav-buttons">
+        <a href="#">🚪 Logout</a>
+    </div>
+    
+
+    <!-- Display Messages -->
+    {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+                <div class="message {{ message.tags }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <!-- Display Existing Rooms -->
+    <div class="existing-rooms">
+        <h3>Your Rooms</h3>
+        {% if rooms %}
+            <ul>
+                {% for room in rooms %}
+                    <li>
+                        <strong>Type:</strong> {{ room.room_type }} | 
+                        <strong>Count:</strong> {{ room.room_count }} | 
+                        <strong>Facilities:</strong> {{ room.facilities }}
+                        <a href="#">Edit</a>
+                        <a href="#">Delete</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No rooms available. Add some below.</p>
+        {% endif %}
+    </div>
+
+    <!-- Form to Add Rooms -->
+    <h2>Add a New Room</h2>
+    <form method="post" action="" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="hotel_name">Hotel Name:</label>
+        <input type="text" name="hotel_name" required><br>
+
+        <div id="room-types">
+            <div class="room-type">
+                <label for="room_type">Room Type:</label>
+                <select name="room_type[]" required>
+                    <option value="single">Single</option>
+                    <option value="double">Double</option>
+                    <option value="suite">Suite</option>
+                </select><br>
+
+                <label for="room_count">Number of Rooms:</label>
+                <input type="number" name="room_count[]" min="1" required><br>
+
+                <label for="facilities">Facilities (comma-separated):</label>
+                <input type="text" name="facilities[]" placeholder="WiFi, Parking, Pool"><br>
+
+                <label for="photos">Upload Photos:</label>
+                <input type="file" name="photos[]" multiple><br>
+            </div>
+        </div>
+
+        <button id="addRoomButton" type="button">Add Room Type</button><br><br>
+
+        <button type="submit">Add Room</button>
+    </form>
+</body>
+</html>

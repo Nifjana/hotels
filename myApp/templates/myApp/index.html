@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Hotels Page</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'myApp/css/index_style.css' %}">
+    </head>
+<body class="container">
+    {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+                <p class="message {{ message.tags }}">{{ message }}</p>
+            {% endfor %}
+        </div>
+    {% endif %}
+    <div>
+        <div class="header">
+            <div class="header-1">
+                <img src="{% static 'myApp/images/logo.jpg' %}" class="logo" alt="logo">
+                <h1>Your luxury, our pleasure</h1>
+            </div>
+            <div>
+                <a href="{% url 'owner' %}" class="login">Owner Register</a>||
+                <a href="{% url 'users' %}" class="login">Register as Traveler</a>
+            </div>
+        </div>
+        <div class="navigate">
+            <a href="{% url 'about-us' %}">About Us</a>
+            <a href="{% url 'dashboard_user' %}">See Hotels</a>
+            <a href="">Reserve Data</a>
+        </div>
+        <div class="time">
+            <h2>Date and time is:</h2>
+            <p>{{ time }}</p>
+            <h2>Perfect time to book a hotel</h2>
+        </div>
+        <h3>Experience the charm of Albania – book your stay and enjoy breathtaking views, and a warm, welcoming atmosphere for the perfect getaway!</h3>
+    </div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'myApp/css/dashboard_user.css' %}">
+</head>
+<body>
+    <div class="contanier">
+        <div class="header">
+            <h1>
+                All hotels available for you 
+                {% if user.is_authenticated %}
+                    {{ user.first_name}}
+                {% else %}
+                    Guest
+                {% endif %}
+                ...
+            </h1>            
+            <a href="{% url 'index' %}">Back to main page</a>
+
+            {% if user.is_authenticated %}
+                <h4><a href="{% url 'logout' %}">Logout</a></h4>
+            {% else %}
+                <h4>Check <a href="{% url 'users' %}">here</a> for registration</h4>
+            {% endif %}
+
+        </div>
+        <div class="main">
+            {% for action in actions %}
+                <li>{{ action }}</li>
+            {% endfor %}
+        </div>
+        <div class="footer">
+            
+        </div>
+    </div>
+</body>
+</html>

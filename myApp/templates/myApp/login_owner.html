@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'myApp/css/login_owner.css' %}">
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        
+        <!-- Message Display -->
+        {% if messages %}
+            <div class="message">
+                {% for message in messages %}
+                    <p class="{{ message.tags }}">{{ message }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        <!-- Login Form -->
+        <form method="POST" action="{% url 'owner_login' %}" id="login-form">
+            {% csrf_token %}
+            
+            <!-- Display non-field errors -->
+            <div class="error-message">
+                {{ form.non_field_errors }}
+            </div>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required placeholder="Enter your email">
+            {% if form.email.errors %}
+                <div class="error-message">
+                    {% for error in form.email.errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required autocomplete="current-password" placeholder="Enter your password">
+            {% if form.password.errors %}
+                <div class="error-message">
+                    {% for error in form.password.errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            <button type="submit">Login</button>
+        </form>
+
+        <!-- Links -->
+        <p>Don't have an account?</p>
+        <a href="{% url 'owner' %}">Sign up</a>
+
+        <p>Back to <a href="{% url 'index' %}">Home</a></p>
+    </div>
+
+    <script>
+        // For debugging: log form submission
+        document.getElementById("login-form").onsubmit = function() {
+            console.log('Login form submitted');
+        };
+    </script>
+</body>
+</html>

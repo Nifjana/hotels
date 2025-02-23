@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register as Owner</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'myApp/css/register_owner.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Our Platform</h1>
+        <p class="subtitle"><b>Please provide your information to register as a hotel owner.</b> </p>
+
+        {% if messages %}
+            <div class="messages">
+                {% for message in messages %}
+                    <p class="message">{{ message }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        <form action="{% url 'owner' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="name">First Name:</label>
+                <input type="text" id="name" name="first_name" required minlength="3" placeholder="Enter your first name">
+            </div>
+
+            <div class="form-group">
+                <label for="surname">Last Name:</label>
+                <input type="text" name="last_name" id="surname" required minlength="3" placeholder="Enter your last name">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email" required placeholder="Enter your email address">
+            </div>
+
+            <div class="form-group">
+                <label for="pass">Password:</label>
+                <input type="password" name="password" id="pass" required pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" title="Password must be at least 8 characters long and contain at least one letter and one number." placeholder="Enter a secure password">
+            </div>
+
+            <div class="form-group">
+                <label for="confpass">Confirm Password:</label>
+                <input type="password" name="confpass" id="confpass" required placeholder="Confirm your password">
+            </div>
+
+            <div class="form-group">
+                <label for="certificate">Certificate:</label>
+                <input type="file" id="certificate" name="certificate" accept=".pdf, .jpg, .jpeg, .png" required>
+            </div>
+
+            <button type="submit" class="submit-button">Submit</button>
+        </form>
+
+        <div class="links">
+            <p><a href="{% url 'index' %}" class="back-link">Back to Home</a></p>
+            <p><a href="{% url 'owner_login' %}" class="login-link">Already have an account? Login</a></p>
+        </div>
+    </div>
+</body>
+</html>

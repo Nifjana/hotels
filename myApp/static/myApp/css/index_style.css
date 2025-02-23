@@ -1,0 +1,100 @@
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f4f8;
+    color: #333;
+    padding: 20px;
+}
+
+/* Header Styling */
+.header {
+    background: linear-gradient(to right, #6a1b9a, #1e88e5); /* Purple to Blue */
+    padding: 20px;
+    color: white;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.header-1 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    width: 150px;
+    height: auto;
+}
+
+.header h1 {
+    font-size: 2rem;
+    margin-left: 20px;
+}
+
+.header div {
+    text-align: right;
+}
+
+.header .login {
+    color: white;
+    text-decoration: none;
+    margin-left: 15px;
+    font-weight: bold;
+}
+
+.header .login:hover {
+    text-decoration: underline;
+}
+
+/* Navigation styling */
+.navigate {
+    background-color: #283593; /* Blue */
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.navigate a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1.1rem;
+}
+
+.navigate a:hover {
+    text-decoration: underline;
+}
+
+/* Time Section */
+.time {
+    background-color: #f2f2f2;
+    border-left: 5px solid #1e88e5;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.time h2 {
+    color: #1e88e5;
+}
+
+.time p {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* Heading styling */
+h3 {
+    color: #6a1b9a;
+    text-align: center;
+    font-size: 1.5rem;
+    margin-top: 20px;
+}
